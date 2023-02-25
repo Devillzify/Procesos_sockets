@@ -39,6 +39,7 @@ public class ServerSocketStream
                 BufferedReader br = new BufferedReader(fl);
 
                 String leer;
+                listaUsers.clear();
                 while ((leer = br.readLine()) != null)
                 {
                     User user = gson.fromJson(leer, User.class);
@@ -81,16 +82,17 @@ public class ServerSocketStream
                         boolean existeSelect = false;
                         for(User s: listaUsers)
                         {
-                            if(usuario.id.equals(s.id))
+                            if(s.id.equalsIgnoreCase(usuario.id))
                             {
-                               encontrado = new User(s.id,s.nom,s.cognom);
-                                System.out.println(encontrado.toString());
+                               encontrado = s;
+                                System.out.println(encontrado);
                                 existeSelect = true;
                             }
                         }
                         if(!existeSelect)
                         {
                             encontrado = new User("No se han encontrado usuarios con esa id");
+                            System.out.println(encontrado);
                         }
                         out.writeObject(encontrado);
                         out.close();
@@ -101,24 +103,34 @@ public class ServerSocketStream
                         break;
 
                     case "Delete":
+                        boolean enc = false;
+                        User ready = new User("");
                         fw = new FileWriter("BBDD.txt",false);
+                        pw = new PrintWriter(fw);
                         System.out.println("esto es un delete");
                         for(int i = 0;i < listaUsers.size(); i++)
                         {
                             if(usuario.id.equals(listaUsers.get(i).id))
                             {
                                 listaUsers.remove(listaUsers.get(i));
+                                ready = new User("El usuario ha sido eliminado");
+                                enc = true;
                             }
                         }
                         for(User s: listaUsers)
                         {
                             pw.write(gson.toJson(s) + "\n");
                         }
-                        User ready = new User("Elemento eliminado");
+
+                        if(!enc)
+                        {
+                            ready = new User("No hay usuarios con esa id");
+                        }
                         out.writeObject(ready);
                         out.close();
+                        fw.close();
+                        pw.close();
                         break;
-
                 }
                 cliente.close();
             }

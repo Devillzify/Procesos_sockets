@@ -1,6 +1,2 @@
-{"id":"1","nom":"dani","cognom":"efdmw"}
-{"id":"2","nom":"toniete","cognom":"wpeofef"}
-{"id":"5","nom":"sss","cognom":"sss"}
-{"id":"3","nom":"ffffffff","cognom":"fffffffff"}
-{"id":"4","nom":"sqpw`l","cognom":"wqps`l"}
-{"id":"22","nom":"aaaa","cognom":"aa"}
+{"id":"1","nom":"aaa","cognom":"a"}
+{"id":"2","nom":"aa","cognom":"s"}

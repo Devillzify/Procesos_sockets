@@ -59,7 +59,13 @@ public class ClientSocketStream
                         User pedirUser = new User(opcionBBDD,id_select);
                         obj.writeObject(pedirUser);
                         User resposta = (User)inp.readObject();
-                        System.out.println(resposta.opcionBBDD);
+                        if(resposta.id == null)
+                        {
+                            System.out.println(resposta.opcionBBDD);
+                        }
+                        else{
+                            System.out.println(resposta);
+                        }
                         break;
 
                     case 3:

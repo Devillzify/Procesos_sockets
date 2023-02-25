@@ -77,11 +77,9 @@ public class User implements Serializable
     @Override
     public String toString()
     {
-        return "User{" +
+        return "User: " +
                 "id='" + id + '\'' +
                 ", nom='" + nom + '\'' +
-                ", cognom='" + cognom + '\'' +
-                ", opcionBBDD='" + opcionBBDD + '\'' +
-                '}';
+                ", cognom='" + cognom + '\'';
     }
 }
