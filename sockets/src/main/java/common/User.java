@@ -1,13 +1,14 @@
-package SocketExample;
+package common;
 
 import java.io.Serializable;
 
 public class User implements Serializable
 {
-    String opcionBBDD;
-    String id;
-    String nom;
-    String cognom;
+   private String opcionBBDD;
+   private String id;
+   private String nom;
+   private String cognom;
+
     public User(String opcionBBDD,String id, String nom, String cognom)
     {
         this.opcionBBDD = opcionBBDD;

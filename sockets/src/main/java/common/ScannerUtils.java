@@ -1,17 +1,17 @@
-package SocketExample;
+package common;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ScannerUtils
 {
     Scanner sc;
 
-    ScannerUtils(){
+   public ScannerUtils(){
         sc = new Scanner(System.in);
     }
 
-    public int pedirNumero() {
+    public int pedirNumero(String message) {
+        System.out.println(message);
         String numero = "";
         boolean validar = false;
         while (!validar) {
